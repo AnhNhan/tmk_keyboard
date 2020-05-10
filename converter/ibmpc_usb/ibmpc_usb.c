@@ -141,6 +141,11 @@ uint8_t matrix_scan(void)
         ibmpc_error = IBMPC_ERR_NONE;
     }
 
+    if (ibmpc_protocol == IBMPC_PROTOCOL_XT_ERROR) {
+        xprintf("\nXT_ERR\n");
+        ibmpc_protocol = IBMPC_PROTOCOL_NO;
+    }
+
     switch (state) {
         case INIT:
             xprintf("I%u ", timer_read());
