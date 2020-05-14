@@ -26,9 +26,13 @@ void led_set(uint8_t usb_led)
         // output low
         DDRB |= (1<<2);
         PORTB &= ~(1<<2);
+        DDRD |= (1<<6);
+        PORTD &= ~(1<<6);
     } else {
         // Hi-Z
         DDRB &= ~(1<<2);
         PORTB &= ~(1<<2);
+        DDRD &= (1<<6);
+        PORTD &= ~(1<<6);
     }
 }
